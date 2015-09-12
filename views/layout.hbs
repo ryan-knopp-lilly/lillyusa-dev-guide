@@ -8,30 +8,63 @@
   </head>
   <body>
     <div class="container-fluid">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header row">
+            <a class="navbar-brand" href="/">Developer Guidelines</a>
+          </div>
+      
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+            <form class="navbar-form navbar-right" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search Guidelines">
+              </div>
+              <button type="submit" class="btn btn-default">Search</button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#">Link</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
       <div class="row">
-        <div class="col-md-3 col-xs-12">
-          <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="false">
+        <div class="col-md-3 col-sm-4 col-xs-12">
+          <nav class="panel-group" id="accordion" role="tablist" aria-multiselectable="false">
             {{#each menu}}
             <div class="panel panel-default">
               <div class="panel-heading" role="tab" id="heading{{@index}}">
                 <h4 class="panel-title">
-                  <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{@index}}" aria-expanded="false" aria-controls="collapse{{@index}}">
-                    {{category}}
+                  <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{@index}}" aria-expanded="{{active}}" aria-controls="collapse{{@index}}">
+                    {{category}} <span class="badge pull-right">{{articles.length}}</span>
                   </a>
                 </h4>
               </div>
-              <div id="collapse{{@index}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading{{@index}}">
+              <div id="collapse{{@index}}" class="panel-collapse collapse {{addClass active "in"}}" role="tabpanel" aria-labelledby="heading{{@index}}">
                 <div class="list-group">
                   {{#each articles}}
-                  <a href="/{{this.permalink}}" class="list-group-item">{{this.title}}</a>
+                  <a href="/{{this.permalink}}" class="list-group-item {{addClass active "active"}}">{{this.title}}</a>
                   {{/each}}
                 </div>
               </div>
             </div>
             {{/each}}
-          </div>
+          </nav>
         </div>
-        <div class="col-md-9 col-xs-12">
+        <div class="col-md-9 col-sm-8 col-xs-12">
           {{{body}}}
         </div>
       </div>

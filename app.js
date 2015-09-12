@@ -1,5 +1,5 @@
 var express = require('express');
-var proxy = require('global-tunnel').initialize();
+//var proxy = require('global-tunnel').initialize();
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
