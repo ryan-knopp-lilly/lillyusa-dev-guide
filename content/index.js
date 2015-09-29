@@ -36,7 +36,13 @@ exports.init = function(){
 		});
 	}
 	
-	http.request(options, callback).end();
+	var request = http.request(options, callback);
+	
+	request.on('error', function (err){
+		console.log("Error making request" + err)
+	});
+	
+	request.end();
 	
 	setInterval(function() {
 		console.log("Refreshing Content");

@@ -24,12 +24,11 @@ router.get('/', function(req, res, next) {
 
 // GET Guideline Article
 router.get('/:permalink', function (req, res, next) {
-  console.log(content.menu());
   var articleContent = content.article(req.params.permalink);
   res.render(
     'article', 
     { 
-      title: articleContent.title, 
+      title: articleContent.fields.title, 
       menu: content.menu(req.params.permalink), 
       article: md(articleContent.fields.body),
       revised: moment(articleContent.sys.updatedAt).format("MMMM Do YYYY, h:mm:ss a")
