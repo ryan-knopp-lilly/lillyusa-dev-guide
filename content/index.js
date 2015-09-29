@@ -17,7 +17,7 @@ exports.init = function(){
 	var options = {
 		//host: 'US_Proxy_Indy.xh1.lilly.com',
 		//port: 9000,
-		host: 'US_Proxy_Indy.xh1.lilly.com',
+		host: 'cdn.contentful.com',
 		path: '/spaces/' + contentfulSpace + '/entries?access_token=' + accessToken + '&content_type=60PxcHAXoAGkQ6E40WOC2E&include=10',
 		method: 'GET'/*, 
 		headers: {
