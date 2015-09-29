@@ -14,12 +14,12 @@ hbs.registerHelper("addClass", function(shouldAdd, value) {
 
 // Get Stuff from Contentful
 var content = require('../content');
-content.init();
+//content.init();
 
 
 // GET home page. 
 router.get('/', function(req, res, next) {
-  res.render('index', { title: "Home", menu: content.menu({}), article: "derp" })
+  res.render('index', { title: "Home", menu: {}, article: "derp" })
 });
 
 // GET Guideline Article
