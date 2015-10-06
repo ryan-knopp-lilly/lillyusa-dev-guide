@@ -45,6 +45,12 @@ app.get('/', function(req, res, next) {
   res.render('index', { title: "Home", menu: content.menu({}), article: "derp" })
 });
 
+// GET Search
+app.get('/search', function(req, res, next) {
+  res.setHeader('Content-Type', 'application/json');
+  res.send(JSON.stringify(content.menu({})));
+});
+
 // GET Guideline Article
 app.get('/:permalink', function (req, res, next) {
   var articleContent = content.article(req.params.permalink);
@@ -57,6 +63,7 @@ app.get('/:permalink', function (req, res, next) {
       revised: moment(articleContent.sys.updatedAt).format("MMMM Do YYYY, h:mm:ss a")
     });
 });
+
 
 
 // catch 404 and forward to error handler
